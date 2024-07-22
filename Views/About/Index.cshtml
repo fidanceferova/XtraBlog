@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "About Page";
+}
+@model XtraBlog.UI.ViewModels.AboutViewModel
+
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form method="GET" class="form-inline tm-mb-80 tm-search-form">
+                        <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..." aria-label="Search">
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="row tm-row tm-mb-45">
+                <div class="col-12">
+          
+                    <hr class="tm-hr-primary tm-mb-55">
+                    <img src="~/img/about-01.jpg" alt="Image" class="img-fluid">
+                </div>
+            </div>
+       
+            <div class="row tm-row tm-mb-40">
+                <div class="col-12">
+                    <div class="mb-4">
+                        <h2 class="pt-2 tm-mb-40 tm-color-primary tm-post-title">About this xtra blog</h2>
+                        <p>
+                            You can immediately download
+                            <a rel="nofollow" href="https://templatemo.com/tm-553-xtra-blog" target="_blank">Xtra Blog Template</a>
+                            from TemplateMo website for 100% free of charge. Etiam vehicula, tortor ac eleifend tincidunt, diam neque pellentesque ipsum,
+                            a geugiat eros mauris eget lorem. Quisque in
+                            bibendum elit, in egestas turpis. Vestibulum ornare sollicitudin congue. Aliquam lorem mi, maximus at iaculis ut, viverra vel
+                            mauris. Duis congue luctus metus, sodales tincidunt lectus fringilla ut. Nunc tempus at magna sed vestibulum.
+                        </p>
+                        <p>
+                            Proin et arcu ligula. Praesent quis erat eu est solliditudin tristique ut in arcu. Donec bibendum ex id ligula semper dictum.
+                            Proin malesuada luctus auctor. Suspendisse ullamcorper, mi vel molestie ornare, arcu magna euismod ipsum, in
+                            malesuada nulla magna ut enim. Morbi lacinia magna sed sapien auctor, vitae luctus nunc cursus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row tm-row tm-mb-120">
+    @foreach (var param in Model.Paramethers)
+    {
+        <div class="col-lg-4 tm-about-col">
+            <div class="tm-bg-gray tm-about-pad">
+                <div class="text-center tm-mt-40 tm-mb-60">
+                    <i class="@param.Icon"></i>
+                </div>
+                <h2 class="mb-3 tm-color-primary tm-post-title">@param.Title</h2>
+                <p class="mb-0 tm-line-height-short">
+                    @param.Description
+                </p>
+            </div>
+        </div>
+    }
+    
+               
+                
+            </div>
+<div class="row tm-row tm-mb-60">
+        @foreach(var admin in Model.Admins)
+        {
+        <div class="col-lg-6 tm-mb-60 tm-person-col">
+            <div class="media tm-person">
+                <div class="image-container">
+                    <img src=@admin.PhotoURL alt="Image" class="img-fluid">
+                </div>
+                <div class="media-body">
+                    <h2 class="tm-color-primary tm-post-title mb-2">@admin.Name</h2>
+                    <h3 class="tm-h3 mb-3">@admin.Position</h3>
+                    <p class="mb-0 tm-line-height-short">
+                       @admin.Description
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        }
+
+    </div>
+
+<style>
+    .image-container {
+        width: 150px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+        margin-right: 16px;
+    }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+</style>
+
